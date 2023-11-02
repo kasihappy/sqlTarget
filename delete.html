@@ -1,0 +1,22 @@
+<!doctype html>
+<!--
+            ◢＼　 ☆　　 ／◣
+    　  　∕　　﹨　╰╮∕　　﹨
+    　  　▏　　～～′′～～ 　｜
+    　　  ﹨／　　　　　　 　＼∕
+    　 　 ∕ 　　●　　　 ●　＼
+      ＝＝　○　∴·╰╯　∴　○　＝＝
+    　    ╭──╮　　　　　╭──╮
+  ╔═∪∪∪═kasihappy's=cat═∪∪∪═╗
+-->
+<html lang="zh-CN">
+<input id="data" type="text" placeholder="which post you want to delete?"/>
+<input id="del" type="button" value="submit"/>
+</html>
+<script>
+var btn = document.getElementById("del");
+btn.onclick = function(){
+	var id = document.getElementById("data").value;
+	window.location.href="./doDelete.php?id="+id;
+}
+</script>
