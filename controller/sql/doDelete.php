@@ -1,16 +1,14 @@
 <?php
 //连接数据库
-require 'dbConnect.php';
+require '../db/dbConnect.php';
+require '../login/judgeLogin.php';
 
-$content = trim(urldecode($_POST['content']));
-$sql = "INSERT INTO store(content) VALUES ('$content')";
+$id = $_GET['id'];
+$username = $_SESSION['username'];
+$sql = "DELETE FROM posts WHERE id='$id' and author='$username'";
 echo "your sql sentence is: ".$sql."<br><br>";
 $result = mysqli_multi_query($conn, $sql);
-echo "----------------------------";
-echo "auto show all values stored";
-echo "----------------------------<br>";
-$sql = "SELECT * FROM store";
-$result = mysqli_multi_query($conn, $sql);
+echo '成功删除，小心造成了破坏，快去检查一下';
 $first = true;
 if ($result){
     do {
@@ -36,3 +34,10 @@ if ($result){
 } else {
     echo "sql语句执行失败了，看看是否存在问题";
 }
+
+// 防止删除之后id不连续的情况
+$sql = "SET @auto_id = 0;
+UPDATE 表名 SET 自增字段名 = (@auto_id := @auto_id + 1);
+ALTER TABLE 表名 AUTO_INCREMENT = 1;
+";
+$result = mysqli_multi_query($conn, $sql);

@@ -10,9 +10,12 @@
   ╔═∪∪∪═kasihappy's=cat═∪∪∪═╗
 -->
 <html lang="zh-CN">
-<form action="./reflectXSS.php" method="post">
+
+<form action="../controller/sql/doInsert.php" method="post" accept-charset="UTF-8">
 <table class="lib-edit">
-<input type="text" name="content" placeholder="search something!!"></input><br><br>
+<input type="text" name="author" placeholder="your name is?"><br><br>
+<input type="text" name="title" placeholder="get the title!"><br><br>
+<input name="content" placeholder="what you want to say?"><br><br>
 <button type="submit">submit</button>
 </table>
 </form>

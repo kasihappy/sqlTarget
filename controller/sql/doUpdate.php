@@ -1,6 +1,6 @@
 <?php
 //连接数据库
-require 'dbConnect.php';
+require '../db/dbConnect.php';
 
 $id = $_POST['id'];
 $title = urldecode($_POST['title']);

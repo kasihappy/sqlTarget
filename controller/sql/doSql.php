@@ -1,6 +1,6 @@
 <?php
 //连接数据库
-require 'dbConnect.php';
+require '../db/dbConnect.php';
 $id = $_GET['id'];
 $sql = "SELECT * FROM posts WHERE id = '{$id}'";
 $result = mysqli_multi_query($conn, $sql);

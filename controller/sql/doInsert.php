@@ -1,13 +1,14 @@
 <?php
 //连接数据库
-require 'dbConnect.php';
+require '../db/dbConnect.php';
 
-$title = urldecode($_POST['title']);
-$author = trim(urldecode($_POST['author']));
-$content = trim(urldecode($_POST['content']));
+$title = $_POST['title'];
+$author = $_POST['author'];
+$content = $_POST['content'];
 $sql = "INSERT INTO posts(author, title, content) VALUES ('$author', '$title', '$content')";
 echo "your sql sentence is: ".$sql."<br><br>";
 $result = mysqli_multi_query($conn, $sql);
+echo "你也许想在select部分看看你是否成功insert";
 $first = true;
 if ($result){
     do {

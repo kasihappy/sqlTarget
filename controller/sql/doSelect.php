@@ -1,9 +1,8 @@
 <?php
 //连接数据库
-require 'dbConnect.php';
-
+require '../db/dbConnect.php';
 $id = $_GET['id'];
-$sql = "DELETE FROM posts WHERE id='$id'";
+$sql = "SELECT title, content FROM posts WHERE id = '{$id}'";
 echo "your sql sentence is: ".$sql."<br><br>";
 $result = mysqli_multi_query($conn, $sql);
 $first = true;
@@ -18,7 +17,7 @@ if ($result){
         if ($res){
             while ($row = $res->fetch_row()){
                 foreach ($row as $data){
-                    echo $data."&nbsp;&nbsp;";
+                    echo $data."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                 }
                 echo "<br>";
             }

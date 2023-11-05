@@ -10,13 +10,10 @@
   ╔═∪∪∪═kasihappy's=cat═∪∪∪═╗
 -->
 <html lang="zh-CN">
-<input id="data" type="text" placeholder="which post you want to delete?"/>
-<input id="del" type="button" value="submit"/>
+<form action="../controller/xss/reflectXSS.php" method="post" accept-charset="UTF-8">
+<table class="lib-edit">
+<input type="text" name="content" placeholder="search something!!"><br><br>
+<button type="submit">submit</button>
+</table>
+</form>
 </html>
-<script>
-var btn = document.getElementById("del");
-btn.onclick = function(){
-	var id = document.getElementById("data").value;
-	window.location.href="./doDelete.php?id="+id;
-}
-</script>

@@ -1,9 +1,15 @@
 <?php
 //连接数据库
-require 'dbConnect.php';
-$id = $_GET['id'];
-$sql = "SELECT title, content FROM posts WHERE id = '{$id}'";
+require '../db/dbConnect.php';
+
+$content = trim(urldecode($_POST['content']));
+$sql = "INSERT INTO store(content) VALUES ('$content')";
 echo "your sql sentence is: ".$sql."<br><br>";
+$result = mysqli_multi_query($conn, $sql);
+echo "----------------------------";
+echo "auto show all values stored";
+echo "----------------------------<br>";
+$sql = "SELECT * FROM store";
 $result = mysqli_multi_query($conn, $sql);
 $first = true;
 if ($result){
@@ -17,7 +23,7 @@ if ($result){
         if ($res){
             while ($row = $res->fetch_row()){
                 foreach ($row as $data){
-                    echo $data."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                    echo $data."&nbsp;&nbsp;";
                 }
                 echo "<br>";
             }
