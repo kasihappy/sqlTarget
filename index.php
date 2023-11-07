@@ -1,7 +1,4 @@
 <?php
-//验证是否登录
-require './controller/login/judgeLogin.php';
-
 //连接数据库
 require './controller/db/dbConnect.php';
 $html = <<<EOT
@@ -24,6 +21,7 @@ $html = <<<EOT
 <button id='delete' onclick="window.location.href='view/delete.html'">go to delete</button><br><br>
 <button id='reflect' onclick="window.location.href='view/reflectXSS.html'">go to reflectXSS</button><br><br>
 <button id='store' onclick="window.location.href='view/storeXSS.html'">go to storeXSS</button><br><br>
+<button id='dom' onclick="window.location.href='view/domHome.html'">go to domXSS</button><br><br>
 </html>
 EOT;
 

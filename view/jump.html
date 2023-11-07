@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title> DOM-XSS TEST </title>
+</head>
+<body>
+<script>
+    var hash = location.hash;
+    if(hash){
+        var url = hash.substring(1);
+        location.href = url;
+    }
+</script>
+</body>
+</html>

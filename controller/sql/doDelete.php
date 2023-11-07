@@ -1,11 +1,9 @@
 <?php
 //连接数据库
 require '../db/dbConnect.php';
-require '../login/judgeLogin.php';
 
 $id = $_GET['id'];
-$username = $_SESSION['username'];
-$sql = "DELETE FROM posts WHERE id='$id' and author='$username'";
+$sql = "DELETE FROM posts WHERE id='$id'";
 echo "your sql sentence is: ".$sql."<br><br>";
 $result = mysqli_multi_query($conn, $sql);
 echo '成功删除，小心造成了破坏，快去检查一下';

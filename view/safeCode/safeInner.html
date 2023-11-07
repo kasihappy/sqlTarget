@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title> DOM-XSS TEST </title>
+    <style>
+        #box{width:250px;height:200px;border:1px solid #e5e5e5;background:#f1f1f1;}
+    </style>
+</head>
+<body>
+<script>
+    window.onload = function () {
+        var oBox = document.getElementById("box");
+        var oSpan = document.getElementById("span1");
+        var oText = document.getElementById("text1");
+        var oBtn = document.getElementById("Btn");
+        oBtn.onclick = function () {
+            oBox.innerText = oBox.innerText + oSpan.innerText + oText.value + "<br/>";
+            oText.value = ""
+        };
+    }
+</script>
+
+<div id="box"></div>
+<span id="span1" >小明：</span>
+<input type="text" id="text1"/>
+<input id="Btn" type="button" value="发送消息" name=""/>
+</body>
+</html>

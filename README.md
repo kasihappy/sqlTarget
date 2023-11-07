@@ -1,8 +1,9 @@
 # SQL & XSS
 ## introduction
 A platform for rucers to exercise SQL injection and XSS injection
-## version 2.1
+## version 2.2
 ## update log
+version2.2: added Dom-based XSS<br/>
 version2.1: solved the problem that Chinese characters not supported<br/>
 version2.0: totally refactored code structure<br/>
 version1.2: added xss related<br/>
